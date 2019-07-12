@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import styled from "styled-components";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@jashkenas/how-to-embed-a-notebook-in-a-react-app";
+import MajorIndexesCirclePack from './MajorIndexes'
 
 const HeaderStyles = styled.div`
   user-select: none;
@@ -102,15 +103,23 @@ render(){
           <span>by Ajay Phogat</span>
         </p>
       </div>
-      <div >
-        <div ref={this.animationRef}></div>
+
+      <div>{MajorIndexesCirclePack}</div>
+      <div>
+        <div ref={this.animationRef} />
         <small>Speed: {this.state.speed}</small>
         <br />
-        <input type="range" min="0" max="2" step="0.1"
-          value={this.state.speed} onChange={this.setSpeed} />
+        <input
+          type='range'
+          min='0'
+          max='2'
+          step='0.1'
+          value={this.state.speed}
+          onChange={this.setSpeed}
+        />
       </div>
     </HeaderStyles>
-  )
+  );
 };
 }
 
