@@ -2,7 +2,9 @@ import React, {Component} from "react";
 import styled from "styled-components";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@jashkenas/how-to-embed-a-notebook-in-a-react-app";
-import MajorIndexesCirclePack from './MajorIndexes'
+import coolook from "@stroked/cool-l-ook";
+// import MajorIndexesCirclePack from './MajorIndexes'
+    // "@stroked/major-indexes-angry-bird-edition": "https://api.observablehq.com/@stroked/major-indexes-angry-bird-edition.tgz@838?v=3",
 
 const HeaderStyles = styled.div`
   user-select: none;
@@ -66,9 +68,16 @@ class App extends Component {
 
  state = {speed: 0.1};
   animationRef = React.createRef();
-
+  knobRef = React.createRef();
   componentDidMount() {
     const runtime = new Runtime();
+    runtime.module(coolook,name => {
+      if (name === "Knob") {
+        return new Inspector(this.knobRef.current);
+      }    
+    });
+
+
     runtime.module(notebook, name => {
       if (name === "animation") {
         return new Inspector(this.animationRef.current);
@@ -104,7 +113,7 @@ render(){
         </p>
       </div>
 
-      <div>{MajorIndexesCirclePack}</div>
+      <div ref={this.knobRef}></div>
       <div>
         <div ref={this.animationRef} />
         <small>Speed: {this.state.speed}</small>
