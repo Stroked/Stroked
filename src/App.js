@@ -2,9 +2,10 @@ import React, {Component} from "react";
 import styled from "styled-components";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@jashkenas/how-to-embed-a-notebook-in-a-react-app";
-import coolook from "@stroked/cool-l-ook";
+//import coolook from "@stroked/cool-l-ook";
 // import MajorIndexesCirclePack from './MajorIndexes'
     // "@stroked/major-indexes-angry-bird-edition": "https://api.observablehq.com/@stroked/major-indexes-angry-bird-edition.tgz@838?v=3",
+//   "@stroked/cool-l-ook":"https://api.observablehq.com/@stroked/coo-l-ook.tgz",
 
 const HeaderStyles = styled.div`
   user-select: none;
@@ -71,11 +72,11 @@ class App extends Component {
   knobRef = React.createRef();
   componentDidMount() {
     const runtime = new Runtime();
-    runtime.module(coolook,name => {
-      if (name === "Knob") {
-        return new Inspector(this.knobRef.current);
-      }    
-    });
+    // runtime.module(coolook,name => {
+    //   if (name === "Knob") {
+    //     return new Inspector(this.knobRef.current);
+    //   }    
+    // });
 
 
     runtime.module(notebook, name => {
