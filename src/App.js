@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "@jashkenas/how-to-embed-a-notebook-in-a-react-app";
+import notebook from "@observablehq/how-to-embed-a-notebook-in-a-react-app";
 //import coolook from "@stroked/cool-l-ook";
 // import MajorIndexesCirclePack from './MajorIndexes'
     // "@stroked/major-indexes-angry-bird-edition": "https://api.observablehq.com/@stroked/major-indexes-angry-bird-edition.tgz@838?v=3",
